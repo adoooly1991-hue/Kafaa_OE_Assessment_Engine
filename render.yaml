@@ -2,7 +2,7 @@ services:
   - type: web
     name: kafaa-oe-ui
     env: docker
-    plan: professional
+    plan: standard
     region: oregon
     rootDir: ./ui
     buildCommand: ""   # Dockerfile handles build
@@ -19,7 +19,7 @@ services:
   - type: web
     name: kafaa-oe-api
     env: docker
-    plan: professional
+    plan: pro
     region: oregon
     rootDir: ./api
     buildCommand: ""   # Dockerfile handles build
