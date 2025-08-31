@@ -2,28 +2,28 @@ services:
   - type: web
     name: kafaa-oe-ui
     env: docker
-    plan: starter
-    region: frankfurt
+    plan: professional
+    region: oregon
     rootDir: ./ui
     buildCommand: ""   # Dockerfile handles build
     startCommand: ""   # Dockerfile CMD is used
     autoDeploy: true
     domains:
-      - your-ui-domain.onrender.com
+      - kafaa-oe-ui.onrender.com
     envVars:
       - key: NEXT_PUBLIC_API_BASE
-        value: https://your-api-domain.onrender.com
+        value: https://kafaa-oe-api.onrender.com
       - key: NODE_ENV
         value: production
 
   - type: web
     name: kafaa-oe-api
     env: docker
-    plan: starter
-    region: frankfurt
+    plan: professional
+    region: oregon
     rootDir: ./api
     buildCommand: ""   # Dockerfile handles build
     startCommand: ""   # Dockerfile CMD is used
     autoDeploy: true
     domains:
-      - your-api-domain.onrender.com
+      - kafaa-oe-api.onrender.com
