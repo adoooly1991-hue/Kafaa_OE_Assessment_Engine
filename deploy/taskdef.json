@@ -1,0 +1,9 @@
+{ "family":"kafaa-oe-task","networkMode":"awsvpc","cpu":"512","memory":"1024","requiresCompatibilities":["FARGATE"],
+"executionRoleArn":"arn:aws:iam::<ACCOUNT_ID>:role/ecsTaskExecutionRole","taskRoleArn":"arn:aws:iam::<ACCOUNT_ID>:role/kafaaOEAppRole",
+"containerDefinitions":[
+{"name":"ui","image":"<ECR_UI_IMAGE>","portMappings":[{"containerPort":8080,"protocol":"tcp"}],"essential":true,
+"environment":[{"name":"PUBLIC_APP_URL","value":"https://app.kafaa.sa"}],
+"logConfiguration":{"logDriver":"awslogs","options":{"awslogs-group":"/ecs/kafaa-oe","awslogs-region":"me-central-1","awslogs-stream-prefix":"ui"}}},
+{"name":"api","image":"<ECR_API_IMAGE>","portMappings":[{"containerPort":8000,"protocol":"tcp"}],"essential":true,
+"environment":[{"name":"EMBED_SIGNING_KEY","value":"change-me"}],
+"logConfiguration":{"logDriver":"awslogs","options":{"awslogs-group":"/ecs/kafaa-oe","awslogs-region":"me-central-1","awslogs-stream-prefix":"api"}}} ] }
